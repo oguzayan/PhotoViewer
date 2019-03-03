@@ -56,6 +56,14 @@ public class ImagePagerAdapter<T> extends PagerAdapter {
         return picasso;
     }
 
+    private Picasso setPicasso(Context context, Picasso picasso) {
+        if (picasso == null)
+            picasso = new Picasso.Builder(context).build();
+
+        return picasso;
+    }
+
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return object == view;

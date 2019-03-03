@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -42,6 +44,11 @@ public class PhotoViewerContainer extends RelativeLayout {
         if (this.uri != null) {
             imageViewPager.setAdapter(new ImagePagerAdapter<>(uri));
         }
+    }
+
+    public void setPicasso(Context context, Picasso picasso) {
+        if (picasso == null)
+            picasso = new Picasso.Builder(context).build();
     }
 
     public void setFile(ArrayList<File> file) {

@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -21,6 +23,7 @@ public class PhotoViewer {
         this.context = builder.context;
         view = new PhotoViewerContainer(builder.context);
         view.setUri(builder.uri);
+        view.setPicasso(context, builder.picasso);
         view.setFile(builder.file);
         view.setUrl(builder.url);
         view.setPosition(builder.position);
@@ -56,6 +59,7 @@ public class PhotoViewer {
         private ArrayList<Uri> uri;
         private ArrayList<File> file;
         private ArrayList<String> url;
+        private Picasso picasso;
         private Context context;
         private int placeHolder = -1;
         private int position = 0;
@@ -128,6 +132,11 @@ public class PhotoViewer {
          */
         public Builder url(ArrayList<String> val) {
             url = val;
+            return this;
+        }
+
+        public Builder picasso(Picasso picasso) {
+            this.picasso = picasso;
             return this;
         }
 
